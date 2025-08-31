@@ -6,7 +6,7 @@ const SocialMedia = () => {
   const socialLinks = [
     { 
       icon: FiGithub, 
-      href: 'https://github.com/badavathkumar811-bit', 
+      href: 'https://github.com/saridechaitanya', 
       label: 'GitHub',
       customIcon: (
         <svg 
@@ -22,31 +22,31 @@ const SocialMedia = () => {
     },
     { 
       icon: FiLinkedin, 
-      href: 'https://linkedin.com/in/kumar-badavath-48444633b', 
+      href: 'https://linkedin.com/in/saride-chaitanya', 
       label: 'LinkedIn',
       description: 'Connect with me professionally'
     },
     { 
       icon: FiTwitter, 
-      href: 'https://twitter.com/badavathkumar', 
+      href: 'https://twitter.com/saridechaitanya', 
       label: 'Twitter',
       description: 'Follow my thoughts and updates'
     },
     { 
       icon: FiMail, 
-      href: 'https://mail.google.com/mail/?view=cm&fs=1&to=badavathkumar811@gmail.com&su=Hello from Portfolio&body=Hi Badavath Kumar,%0D%0A%0D%0AI came across your portfolio and would like to connect with you.%0D%0A%0D%0ABest regards,', 
+      href: 'https://mail.google.com/mail/?view=cm&fs=1&to=saridechaitanya7443@gmail.com&su=Hello from Portfolio&body=Hi Saride Chaitanya,%0D%0A%0D%0AI came across your portfolio and would like to connect with you.%0D%0A%0D%0ABest regards,', 
       label: 'Email',
       description: 'Send me a direct message'
     },
-                               { 
-         icon: FiInstagram, 
-         href: 'https://www.instagram.com/mr_kumar__155', 
-         label: 'Instagram',
-         description: 'See my creative side'
-       },
+    { 
+      icon: FiInstagram, 
+      href: 'https://www.instagram.com/saridechaitanya', 
+      label: 'Instagram',
+      description: 'See my creative side'
+    },
     { 
       icon: FiYoutube, 
-      href: 'https://youtube.com/@yourusername', 
+      href: 'https://youtube.com/@saridechaitanya', 
       label: 'YouTube',
       description: 'Watch my tutorials and content'
     }
@@ -109,7 +109,7 @@ const SocialMedia = () => {
             Don't see the platform you prefer? 
           </p>
           <a
-            href="https://mail.google.com/mail/?view=cm&fs=1&to=badavathkumar811@gmail.com&su=Hello from Portfolio&body=Hi Badavath Kumar,%0D%0A%0D%0AI came across your portfolio and would like to connect with you.%0D%0A%0D%0ABest regards,"
+            href="https://mail.google.com/mail/?view=cm&fs=1&to=saridechaitanya7443@gmail.com&su=Hello from Portfolio&body=Hi Saride Chaitanya,%0D%0A%0D%0AI came across your portfolio and would like to connect with you.%0D%0A%0D%0ABest regards,"
             target="_blank"
             rel="noopener noreferrer"
             className="btn-secondary inline-flex items-center space-x-2"

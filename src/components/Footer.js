@@ -6,7 +6,7 @@ const Footer = () => {
   const socialLinks = [
     { 
       icon: FiGithub, 
-      href: 'https://github.com/yourusername', 
+      href: 'https://github.com/saridechaitanya', 
       label: 'GitHub',
       customIcon: (
         <svg 
@@ -19,10 +19,10 @@ const Footer = () => {
         </svg>
       )
     },
-         { icon: FiLinkedin, href: 'https://linkedin.com/in/kumar-badavath-48444633b', label: 'LinkedIn' },
-     { icon: FiTwitter, href: 'https://twitter.com/yourusername', label: 'Twitter' },
-                                               { icon: FiInstagram, href: 'https://www.instagram.com/mr_kumar__155', label: 'Instagram' },
-          { icon: FiMail, href: 'mailto:badavathkumar811@gmail.com', label: 'Email' }
+    { icon: FiLinkedin, href: 'https://linkedin.com/in/saride-chaitanya', label: 'LinkedIn' },
+    { icon: FiTwitter, href: 'https://twitter.com/saridechaitanya', label: 'Twitter' },
+    { icon: FiInstagram, href: 'https://www.instagram.com/saridechaitanya', label: 'Instagram' },
+    { icon: FiMail, href: 'mailto:saridechaitanya7443@gmail.com', label: 'Email' }
   ];
 
   const scrollToTop = () => {
@@ -42,12 +42,12 @@ const Footer = () => {
             className="space-y-4"
           >
                          <h3 className="text-2xl font-bold text-secondary cursor-pointer" onClick={scrollToTop}>
-               Badavath Kumar
-             </h3>
+              Saride Chaitanya
+            </h3>
                          <p className="text-textSecondary text-sm max-w-md">
-               A passionate Electronics & Communication Engineering student focused on creating 
-               embedded systems and IoT solutions that make a difference.
-             </p>
+              A passionate Electronics & Communication Engineering student focused on EV charger manufacturing, 
+              testing, and electronics with hands-on experience in industrial training.
+            </p>
           </motion.div>
 
           {/* Quick Links */}
@@ -120,7 +120,7 @@ const Footer = () => {
         >
           <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
                          <p className="text-textSecondary text-sm">
-               © {new Date().getFullYear()} Badavath Kumar. All rights reserved.
+              © {new Date().getFullYear()} Saride Chaitanya. All rights reserved.
              </p>
             
             <div className="flex items-center space-x-2 text-textSecondary text-sm">

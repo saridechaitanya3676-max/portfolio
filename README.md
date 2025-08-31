@@ -1,6 +1,16 @@
-# Personal Portfolio Website
+# Saride Chaitanya - Portfolio Website
 
-A modern, responsive portfolio website built with React.js and Tailwind CSS, inspired by the design at [https://pganeshkrishnareddy.netlify.app/](https://pganeshkrishnareddy.netlify.app/).
+A modern, responsive portfolio website for Saride Chaitanya, an Electronics & Communication Engineering student specializing in EV charger manufacturing and electronics. Built with React.js and Tailwind CSS.
+
+## About Saride Chaitanya
+
+- **Name**: Saride Chaitanya
+- **Email**: saridechaitanya7443@gmail.com
+- **Phone**: +91 8499960979
+- **Location**: 8-24, Main Road Iragavaram, Iragavaram Mandal, West Godavari, Andhra Pradesh 534217
+- **Education**: B.Tech in Electronics Communication Engineering at Lovely Professional University, Punjab
+- **Experience**: Trainee at AXIOM ENERGY CONVERSION Pvt. ltd. (Industrial Training)
+- **Skills**: EV Charger Manufacturing, C Programming, Soldering, Testing Procedures
 
 ## Features
 
@@ -8,9 +18,9 @@ A modern, responsive portfolio website built with React.js and Tailwind CSS, ins
 - 📱 Fully responsive across all devices
 - ✨ Smooth animations using Framer Motion
 - 🎯 Interactive navigation with active section highlighting
-- 📧 Contact form with validation
+- 📧 Contact form with EmailJS integration
 - 🚀 Optimized performance and SEO
-- 🎭 Customizable content and styling
+- 🎭 Professional portfolio showcasing electronics projects
 
 ## Tech Stack
 
@@ -18,7 +28,17 @@ A modern, responsive portfolio website built with React.js and Tailwind CSS, ins
 - **Styling**: Tailwind CSS
 - **Animations**: Framer Motion
 - **Icons**: React Icons
+- **Email Service**: EmailJS
 - **Build Tool**: Create React App
+
+## Projects Featured
+
+1. **Fire Fighting Robot** - Autonomous fire detection and extinguishing system
+2. **Smart Parking System** - Intelligent parking spot detection and guidance
+3. **Smart Attendance System** - Automated attendance tracking using RFID
+4. **Smart Classroom System** - Integrated classroom automation
+5. **EV Charger Manufacturing** - Industrial training experience
+6. **Academic Projects Portfolio** - Collection of electronics projects
 
 ## Getting Started
 
@@ -32,7 +52,7 @@ A modern, responsive portfolio website built with React.js and Tailwind CSS, ins
 1. Clone the repository:
 ```bash
 git clone <your-repo-url>
-cd portfolio-website
+cd saride-chaitanya-portfolio
 ```
 
 2. Install dependencies:
@@ -47,155 +67,37 @@ npm start
 
 4. Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
 
-## Customization Guide
+## Contact Information
 
-### 1. Personal Information
+- **Email**: saridechaitanya7443@gmail.com
+- **Phone**: +91 8499960979
+- **LinkedIn**: [Saride Chaitanya](https://linkedin.com/in/saride-chaitanya)
+- **GitHub**: [saridechaitanya](https://github.com/saridechaitanya)
 
-Update your personal details in the following files:
+## Education
 
-#### Hero Section (`src/components/Hero.js`)
-```javascript
-// Update these values
-const socialLinks = [
-  { icon: FiGithub, href: 'https://github.com/YOUR_USERNAME', label: 'GitHub' },
-  { icon: FiLinkedin, href: 'https://linkedin.com/in/YOUR_USERNAME', label: 'LinkedIn' },
-  { icon: FiTwitter, href: 'https://twitter.com/YOUR_USERNAME', label: 'Twitter' },
-  { icon: FiMail, href: 'mailto:YOUR_EMAIL@example.com', label: 'Email' }
-];
+- **2025-2028**: B.Tech in Electronics Communication Engineering, Lovely Professional University, Punjab
+- **2022-2025**: Diploma in Electronics Communication Engineering, Andhra Polytechnic College, Kakinada (70%)
+- **2021-2022**: SSC, Tirumala Educational Institutes (85.2%)
 
-// Update the hero text
-<h1 className="heading-primary">Your Name.</h1>
-<h2>I build things for the web.</h2>
-```
+## Work Experience
 
-#### About Section (`src/components/About.js`)
-```javascript
-// Update the about text and skills
-const skills = [
-  'Your', 'Custom', 'Skills', 'Here'
-];
+- **AXIOM ENERGY CONVERSION Pvt. ltd.** - Trainee (Industrial Training)
+  - Primary testing, Visual Inspection, Final testing, Software Dumping
+  - Location: Cherlapalli, Hyderabad
 
-// Update the about paragraphs
-<p>Hello! I'm Your Name, a passionate software engineer...</p>
-```
+## Skills
 
-#### Experience Section (`src/components/Experience.js`)
-```javascript
-const experiences = [
-  {
-    company: 'Your Company',
-    position: 'Your Position',
-    duration: '2022 - Present',
-    description: [
-      'Your achievements and responsibilities'
-    ],
-    technologies: ['Your', 'Technologies']
-  }
-];
-```
+- **Technical Skills**: EV Charger Manufacturing Process, C Programming, Computer Knowledge, Soldering
+- **Work Experience**: Primary Testing, Visual Inspection, Final Testing, Software Dumping, Quality Assurance
+- **Languages**: English, Telugu
+- **Certifications**: Certified by UNXT by SGBS UNNATI FOUNDATION
 
-#### Projects Section (`src/components/Projects.js`)
-```javascript
-const projects = [
-  {
-    title: 'Your Project',
-    description: 'Project description',
-    technologies: ['React', 'Node.js'],
-    github: 'https://github.com/yourusername/project',
-    live: 'https://your-project.com',
-    featured: true
-  }
-];
-```
+## Interests
 
-#### Contact Section (`src/components/Contact.js`)
-```javascript
-const contactInfo = [
-  {
-    icon: FiMail,
-    label: 'Email',
-    value: 'your.email@example.com',
-    href: 'mailto:your.email@example.com'
-  },
-  {
-    icon: FiPhone,
-    label: 'Phone',
-    value: '+1 (555) 123-4567',
-    href: 'tel:+15551234567'
-  }
-];
-```
-
-### 2. Styling Customization
-
-#### Colors (`tailwind.config.js`)
-```javascript
-colors: {
-  primary: "#0a192f",      // Main background
-  secondary: "#64ffda",    // Accent color
-  textPrimary: "#ccd6f6",  // Primary text
-  textSecondary: "#8892b0", // Secondary text
-  darkBlue: "#112240",     // Card backgrounds
-  lightBlue: "#233554"     // Borders
-}
-```
-
-#### Typography (`src/index.css`)
-Update font families and custom styles in the CSS file.
-
-### 3. Images and Assets
-
-1. Replace placeholder images in the About section
-2. Add your profile picture
-3. Add project screenshots
-4. Update favicon and other assets in the `public` folder
-
-### 4. SEO and Meta Tags
-
-Update the meta tags in `public/index.html`:
-```html
-<title>Your Name - Portfolio</title>
-<meta name="description" content="Your portfolio description" />
-```
-
-### 5. Deployment
-
-#### Netlify (Recommended)
-1. Push your code to GitHub
-2. Connect your repository to Netlify
-3. Deploy automatically
-
-#### Vercel
-1. Install Vercel CLI: `npm i -g vercel`
-2. Run: `vercel`
-
-#### GitHub Pages
-1. Add homepage to package.json: `"homepage": "https://yourusername.github.io/repo-name"`
-2. Install gh-pages: `npm install --save-dev gh-pages`
-3. Add scripts to package.json:
-```json
-"predeploy": "npm run build",
-"deploy": "gh-pages -d build"
-```
-4. Deploy: `npm run deploy`
-
-## File Structure
-
-```
-src/
-├── components/
-│   ├── Navbar.js          # Navigation component
-│   ├── Hero.js            # Hero section
-│   ├── About.js           # About section
-│   ├── Experience.js      # Work experience
-│   ├── Projects.js        # Projects showcase
-│   ├── Skills.js          # Skills section
-│   ├── Contact.js         # Contact form
-│   └── Footer.js          # Footer component
-├── App.js                 # Main app component
-├── index.js               # App entry point
-└── index.css              # Global styles
-```
+- Playing games
+- Visiting new places
+- Watching movies
 
 ## Available Scripts
 
@@ -204,28 +106,16 @@ src/
 - `npm test` - Launches the test runner
 - `npm run eject` - Ejects from Create React App
 
-## Contributing
-
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
-3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
-4. Push to the branch (`git push origin feature/AmazingFeature`)
-5. Open a Pull Request
-
 ## License
 
 This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
 
 ## Acknowledgments
 
-- Design inspiration from [P Ganesh Krishna Reddy's portfolio](https://pganeshkrishnareddy.netlify.app/)
+- Design inspiration from modern portfolio websites
 - Icons from [React Icons](https://react-icons.github.io/react-icons/)
 - Animations powered by [Framer Motion](https://www.framer.com/motion/)
 
-## Support
-
-If you have any questions or need help customizing the portfolio, feel free to open an issue or contact me directly.
-
 ---
 
-**Happy coding! 🚀**
+**Connect with Saride Chaitanya for opportunities in electronics and EV charger manufacturing! 🚀**

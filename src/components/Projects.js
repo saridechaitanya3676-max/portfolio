@@ -1,63 +1,62 @@
 import React from 'react';
 import { motion } from 'framer-motion';
 import { FiGithub, FiExternalLink } from 'react-icons/fi';
-// Import project images from assets
-import smartHomeImage from '../assets/smart-home-automation.jpg';
-import circuitDesignImage from '../assets/CircuitDesign.jpg';
 
 const Projects = () => {
   const projects = [
     {
-      title: 'Smart Home Automation System',
-      description: 'Designed and implemented a comprehensive smart home automation system using Arduino and various sensors. Features include light control, temperature monitoring, and energy saving capabilities.',
-      image: smartHomeImage,
-      technologies: ['Arduino', 'C Programming', 'Embedded C', 'IoT', 'Sensors', 'Smart Home'],
-      github: 'https://github.com/badavathkumar811-bit/smart-home-automation',
+      title: 'Fire Fighting Robot',
+      description: 'Designed and developed an autonomous fire fighting robot capable of detecting and extinguishing fires. The robot uses sensors to detect fire and automatically navigates to the source to extinguish it.',
+      image: '/fire.jpg',
+      imageDimensions: { width: 682, height: 610 },
+      technologies: ['Arduino', 'Fire Detection Sensors', 'Motor Control', 'C Programming', 'Autonomous Navigation', 'Safety Systems'],
+      github: 'https://github.com/saridechaitanya/fire-fighting-robot',
       live: '#',
       featured: true
     },
     {
-      title: 'Circuit Design & Testing',
-      description: 'Worked on basic circuit design and testing using simulation tools. Assisted in developing small embedded projects using Arduino and microcontrollers.',
-      image: circuitDesignImage,
-      technologies: ['Circuit Design', 'Arduino', 'Microcontrollers', 'PCB Design', 'Simulation Tools'],
-      github: 'https://github.com/badavathkumar811-bit/circuit-design',
+      title: 'Smart Parking System',
+      description: 'Developed an intelligent parking system that automatically detects available parking spots and guides vehicles to empty spaces. The system uses sensors and displays real-time parking availability.',
+      image: '/smartparking.jpg',
+      imageDimensions: { width: 750, height: 532 },
+      technologies: ['IoT Sensors', 'Display Systems', 'C Programming', 'Automation', 'Real-time Monitoring', 'User Interface'],
+      github: 'https://github.com/saridechaitanya/smart-parking-system',
       live: '#',
       featured: true
     },
     {
-      title: 'Temperature Monitoring System',
-      description: 'Developed a temperature monitoring system using Arduino and temperature sensors for environmental monitoring and data logging.',
-      image: circuitDesignImage,
-      technologies: ['Arduino', 'Temperature Sensors', 'C Programming', 'Data Logging', 'IoT'],
-      github: 'https://github.com/badavathkumar811-bit/temperature-monitor',
+      title: 'Smart Attendance System',
+      description: 'Created an automated attendance system using RFID or biometric technology to track student attendance efficiently. The system provides real-time attendance reports and analytics.',
+      image: 'https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      technologies: ['RFID Technology', 'Database Management', 'C Programming', 'Automation', 'Reporting System', 'User Management'],
+      github: 'https://github.com/saridechaitanya/smart-attendance-system',
       live: '#',
       featured: false
     },
     {
-      title: 'LED Control System',
-      description: 'Created an LED control system with various lighting patterns and remote control capabilities using Arduino.',
-      image: circuitDesignImage,
-      technologies: ['Arduino', 'LED Control', 'Remote Control', 'Pattern Generation', 'C Programming'],
-      github: 'https://github.com/badavathkumar811-bit/led-control',
+      title: 'Smart Classroom System',
+      description: 'Designed an integrated smart classroom system that automates various classroom functions including lighting, temperature control, and multimedia equipment management.',
+      image: 'https://images.unsplash.com/photo-1524178232363-1fb2b075b655?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      technologies: ['IoT', 'Automation', 'C Programming', 'Sensor Integration', 'Control Systems', 'Classroom Management'],
+      github: 'https://github.com/saridechaitanya/smart-classroom-system',
       live: '#',
       featured: false
     },
     {
-      title: 'Energy Monitoring Device',
-      description: 'Designed an energy monitoring device to track power consumption and provide energy-saving recommendations.',
-      image: circuitDesignImage,
-      technologies: ['Arduino', 'Energy Monitoring', 'Current Sensors', 'Data Analysis', 'IoT'],
-      github: 'https://github.com/badavathkumar811-bit/energy-monitor',
+      title: 'EV Charger Manufacturing Process',
+      description: 'Gained hands-on experience in the manufacturing process of three-wheeler EV chargers during industrial training at AXIOM ENERGY CONVERSION Pvt. ltd.',
+      image: 'https://images.unsplash.com/photo-1593941707882-a5bac6861d75?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2070&q=80',
+      technologies: ['EV Charger Manufacturing', 'Quality Control', 'Testing Procedures', 'Component Assembly', 'Safety Standards', 'Production Process'],
+      github: 'https://github.com/saridechaitanya/ev-charger-manufacturing',
       live: '#',
       featured: false
     },
     {
-      title: 'IoT Workshop Projects',
-      description: 'Attended workshop on IoT & Embedded Systems. Gained hands-on experience with microcontrollers including 8051, Arduino, and Raspberry Pi.',
-      image: circuitDesignImage,
-      technologies: ['IoT', '8051', 'Arduino', 'Raspberry Pi', 'Embedded Systems', 'Electronics'],
-      github: 'https://github.com/badavathkumar811-bit/iot-workshop',
+      title: 'Academic Projects Portfolio',
+      description: 'Collection of various academic projects completed during diploma studies including circuit design, testing, and practical electronics applications.',
+      image: 'https://images.unsplash.com/photo-1518709268805-4e9042af2176?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2025&q=80',
+      technologies: ['Circuit Design', 'Electronics', 'C Programming', 'Soldering', 'Testing', 'Academic Projects'],
+      github: 'https://github.com/saridechaitanya/academic-projects',
       live: '#',
       featured: false
     }
@@ -96,32 +95,51 @@ const Projects = () => {
               {/* Project Image */}
               <div className={`${index % 2 === 1 ? 'lg:col-start-2' : ''}`}>
                 <div className="relative group">
-                  <div className="w-full h-80 bg-darkBlue border border-lightBlue rounded-lg overflow-hidden">
+                  <div 
+                    className="bg-gray-800 border border-gray-700 rounded-xl overflow-hidden shadow-lg"
+                    style={{
+                      width: project.imageDimensions ? `${project.imageDimensions.width}px` : '100%',
+                      height: project.imageDimensions ? `${project.imageDimensions.height}px` : '320px',
+                      maxWidth: '100%',
+                      maxHeight: '400px'
+                    }}
+                  >
                     <img
                       src={project.image}
                       alt={project.title}
-                      className="w-full h-full object-cover"
+                      className="w-full h-full object-cover object-center"
+                      style={{
+                        width: '100%',
+                        height: '100%',
+                        objectFit: 'cover',
+                        objectPosition: 'center'
+                      }}
+                      onError={(e) => {
+                        console.log('Image failed to load:', project.title, project.image);
+                        e.target.style.display = 'none';
+                        e.target.parentElement.style.background = 'linear-gradient(45deg, #ff6b35, #f7931e)';
+                      }}
                     />
                   </div>
-                  <div className="absolute inset-0 bg-secondary bg-opacity-20 rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+                  <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent rounded-xl opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
                 </div>
               </div>
 
               {/* Project Content */}
               <div className={`space-y-4 ${index % 2 === 1 ? 'lg:col-start-1' : ''}`}>
-                <p className="text-secondary font-mono text-sm">Featured Project</p>
-                <h3 className="text-2xl font-semibold text-textPrimary">{project.title}</h3>
-                <div className="bg-darkBlue p-6 rounded-lg border border-lightBlue">
-                  <p className="text-textSecondary">{project.description}</p>
+                <p className="text-orange-500 font-mono text-sm">Featured Project</p>
+                <h3 className="text-2xl font-semibold text-white">{project.title}</h3>
+                <div className="bg-gray-800/50 p-6 rounded-xl border border-gray-700">
+                  <p className="text-gray-300">{project.description}</p>
                 </div>
                 
                 <div className="flex flex-wrap gap-2">
                   {project.technologies.map((tech, techIndex) => (
                     <span
                       key={tech}
-                      className="text-xs text-textSecondary font-mono"
+                      className="px-3 py-1 bg-gray-700 text-gray-300 rounded-full text-xs font-medium"
                     >
-                      {tech}{techIndex < project.technologies.length - 1 ? ' /' : ''}
+                      {tech}
                     </span>
                   ))}
                 </div>
@@ -131,7 +149,7 @@ const Projects = () => {
                     href={project.github}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-textSecondary hover:text-secondary transition-colors duration-300"
+                    className="text-gray-400 hover:text-orange-500 transition-colors duration-300"
                   >
                     <FiGithub size={20} />
                   </a>
@@ -139,7 +157,7 @@ const Projects = () => {
                     href={project.live}
                     target="_blank"
                     rel="noopener noreferrer"
-                    className="text-textSecondary hover:text-secondary transition-colors duration-300"
+                    className="text-gray-400 hover:text-orange-500 transition-colors duration-300"
                   >
                     <FiExternalLink size={20} />
                   </a>
@@ -156,7 +174,7 @@ const Projects = () => {
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
-            className="text-xl font-semibold text-textPrimary mb-8"
+            className="text-xl font-semibold text-white mb-8"
           >
             Other Noteworthy Projects
           </motion.h3>
@@ -169,28 +187,28 @@ const Projects = () => {
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.6, delay: index * 0.1 }}
                 viewport={{ once: true }}
-                className="card group hover:transform hover:scale-105 transition-all duration-300"
+                className="bg-gray-900/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-6 group hover:transform hover:scale-105 transition-all duration-300 shadow-lg hover:shadow-xl"
               >
                 <div className="space-y-4">
                   <div className="flex justify-between items-start">
-                    <div className="text-secondary">
+                    <div className="text-orange-500">
                       <FiExternalLink size={20} />
                     </div>
                     <a
                       href={project.github}
                       target="_blank"
                       rel="noopener noreferrer"
-                      className="text-textSecondary hover:text-secondary transition-colors duration-300"
+                      className="text-gray-400 hover:text-orange-500 transition-colors duration-300"
                     >
                       <FiGithub size={20} />
                     </a>
                   </div>
 
                   <div>
-                    <h4 className="text-lg font-semibold text-textPrimary mb-2">
+                    <h4 className="text-lg font-semibold text-white mb-2">
                       {project.title}
                     </h4>
-                    <p className="text-textSecondary text-sm mb-4">
+                    <p className="text-gray-300 text-sm mb-4">
                       {project.description}
                     </p>
                   </div>
@@ -199,7 +217,7 @@ const Projects = () => {
                     {project.technologies.map((tech) => (
                       <span
                         key={tech}
-                        className="text-xs text-textSecondary font-mono"
+                        className="px-2 py-1 bg-gray-700 text-gray-300 rounded-full text-xs font-medium"
                       >
                         {tech}
                       </span>

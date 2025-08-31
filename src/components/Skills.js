@@ -7,39 +7,39 @@ import {
 const Skills = () => {
   const skillCategories = [
     {
-      title: 'Embedded Systems',
+      title: 'Technical Skills',
       icon: FiCode,
       skills: [
-        { name: 'Arduino', level: 88 },
-        { name: 'Microcontrollers', level: 82 },
-        { name: 'C Programming', level: 85 },
-        { name: 'Embedded C', level: 78 },
-        { name: '8051', level: 75 },
-        { name: 'Raspberry Pi', level: 72 }
+        { name: 'EV Charger Manufacturing Process', level: 85 },
+        { name: 'C Programming', level: 75 },
+        { name: 'Computer Knowledge', level: 80 },
+        { name: 'Soldering', level: 88 },
+        { name: 'Primary Testing', level: 82 },
+        { name: 'Visual Inspection', level: 85 }
       ]
     },
     {
-      title: 'Hardware & Design',
+      title: 'Work Experience',
       icon: FiTool,
       skills: [
-        { name: 'Circuit Design', level: 85 },
-        { name: 'PCB Design', level: 78 },
-        { name: 'IoT', level: 80 },
-        { name: 'Sensors', level: 82 },
-        { name: 'Simulation Tools', level: 75 },
-        { name: 'Debugging', level: 88 }
+        { name: 'Final Testing', level: 80 },
+        { name: 'Software Dumping', level: 75 },
+        { name: 'Quality Assurance', level: 82 },
+        { name: 'Circuit Design', level: 78 },
+        { name: 'Component Testing', level: 85 },
+        { name: 'Manufacturing Process', level: 88 }
       ]
     },
     {
-      title: 'Soft Skills',
+      title: 'Education & Certifications',
       icon: FiMonitor,
       skills: [
-        { name: 'Project Management', level: 82 },
-        { name: 'Teamwork', level: 90 },
-        { name: 'Leadership', level: 78 },
-        { name: 'Communication', level: 85 },
-        { name: 'Time Management', level: 80 },
-        { name: 'Critical Thinking', level: 88 }
+        { name: 'Diploma in ECE', level: 70 },
+        { name: 'SSC Education', level: 85 },
+        { name: 'B.Tech ECE (Ongoing)', level: 75 },
+        { name: 'UNXT Certification', level: 90 },
+        { name: 'Academic Projects', level: 80 },
+        { name: 'Industrial Training', level: 85 }
       ]
     },
     {
@@ -48,8 +48,8 @@ const Skills = () => {
       skills: [
         { name: 'English', level: 85 },
         { name: 'Telugu', level: 95 },
-        { name: 'Hindi', level: 80 },
-        { name: 'Public Relations', level: 78 }
+        { name: 'Communication Skills', level: 80 },
+        { name: 'Technical Writing', level: 75 }
       ]
     }
   ];
@@ -141,9 +141,9 @@ const Skills = () => {
           
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
-              'Smart Home Automation', 'Energy Monitoring', 'Temperature Control', 'Light Control',
-              'Circuit Simulation', 'PCB Layout', 'Component Selection', 'Troubleshooting',
-              'Problem Solving', 'Team Collaboration', 'Project Management', 'Continuous Learning'
+              'Fire Fighting Robot', 'Smart Parking System', 'Smart Attendance System', 'Smart Classroom System',
+              'Playing Games', 'Visiting New Places', 'Watching Movies', 'Problem Solving',
+              'Team Collaboration', 'Continuous Learning', 'Quality Control', 'Manufacturing Processes'
             ].map((skill, index) => (
               <motion.div
                 key={skill}
