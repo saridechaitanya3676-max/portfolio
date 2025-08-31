@@ -1,7 +1,7 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import { motion } from 'framer-motion';
-import { FiMail, FiPhone, FiMapPin, FiSend, FiGithub, FiLinkedin, FiTwitter, FiInstagram, FiUser, FiMessageSquare } from 'react-icons/fi';
-import emailjs from 'emailjs-com';
+import { FiUser, FiMessageSquare, FiMail, FiPhone, FiMapPin, FiGithub, FiLinkedin, FiTwitter, FiInstagram } from 'react-icons/fi';
+import emailjs from '@emailjs/browser';
 
 const Contact = () => {
   const [formData, setFormData] = useState({
@@ -11,190 +11,189 @@ const Contact = () => {
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState(''); // 'success' or 'error'
+  const [submitStatus, setSubmitStatus] = useState(null);
 
-  // Initialize EmailJS with new public key
-  useEffect(() => {
-    emailjs.init("4yYSnDUcAAY9gC8Yn"); // Updated EmailJS Public Key
-  }, []);
+  const contactInfo = [
+    {
+      icon: FiMail,
+      title: 'Email',
+      value: 'saridechaitanya7443@gmail.com',
+      link: 'https://mail.google.com/mail/u/0/?fs=1&to=saridechaitanya7443@gmail.com&su=Hello+from+Portfolio&body=Hi+Saride+Chaitanya,%0D%0A%0D%0AI+came+across+your+portfolio+and+would+like+to+connect+with+you.%0D%0A%0D%0ABest+regards,&tf=cm'
+    },
+    {
+      icon: FiPhone,
+      title: 'Phone',
+      value: '+91 8499960979',
+      link: 'tel:+918499960979'
+    },
+    {
+      icon: FiMapPin,
+      title: 'Location',
+      value: 'Iragavaram, West Godavari, Andhra Pradesh',
+      link: '#'
+    }
+  ];
 
-  const handleChange = (e) => {
-    setFormData({
-      ...formData,
-      [e.target.name]: e.target.value
-    });
+  const socialLinks = [
+    {
+      icon: FiGithub,
+      title: 'GitHub',
+      url: 'https://github.com/saridechaitanya3676-max',
+      color: 'hover:text-gray-400'
+    },
+    {
+      icon: FiLinkedin,
+      title: 'LinkedIn',
+      url: 'https://www.linkedin.com/in/saride-chaitanya-806ba636b',
+      color: 'hover:text-blue-400'
+    },
+    {
+      icon: FiTwitter,
+      title: 'Twitter',
+      url: 'https://twitter.com/chaitu__065',
+      color: 'hover:text-blue-400'
+    },
+    {
+      icon: FiInstagram,
+      title: 'Instagram',
+      url: 'https://www.instagram.com/chaitu___065?igsh=NTVmY3V6MHZ4bjUy',
+      color: 'hover:text-pink-400'
+    }
+  ];
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData(prev => ({
+      ...prev,
+      [name]: value
+    }));
   };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    setSubmitStatus('');
+    setSubmitStatus(null);
 
-         // EmailJS template parameters
-     const templateParams = {
-      from_name: formData.name,
-      from_email: formData.email,
-      subject: formData.subject,
-      message: formData.message,
-      to_email: 'saridechaitanya7443@gmail.com'
-     };
+    try {
+      await emailjs.send(
+        'service_znb2cc8',
+        'template_qce1z1n',
+        {
+          from_name: formData.name,
+          from_email: formData.email,
+          subject: formData.subject,
+          message: formData.message,
+          to_email: 'saridechaitanya7443@gmail.com'
+        },
+        '4yYSnDUcAAY9gC8Yn'
+      );
 
-         try {
-       await emailjs.send(
-        'service_znb2cc8', // Gmail service ID
-        'template_qce1z1n', // EmailJS template ID
-         templateParams
-       );
-      
       setSubmitStatus('success');
       setFormData({ name: '', email: '', subject: '', message: '' });
     } catch (error) {
-      console.error('Email sending failed:', error);
+      console.error('Email send error:', error);
       setSubmitStatus('error');
     } finally {
       setIsSubmitting(false);
     }
   };
 
-  const contactInfo = [
-    {
-      icon: FiMail,
-      label: 'Email',
-      value: 'saridechaitanya7443@gmail.com',
-      href: 'mailto:saridechaitanya7443@gmail.com'
-    },
-    {
-      icon: FiPhone,
-      label: 'Phone',
-      value: '+91 8499960979',
-      href: 'tel:+918499960979'
-    },
-    {
-      icon: FiMapPin,
-      label: 'Location',
-      value: '8-24, Main Road Iragavaram, Iragavaram Mandal, West Godavari, Andhra Pradesh 534217',
-      href: '#'
-    }
-  ];
-
   return (
-    <section id="contact" className="section-padding bg-gradient-to-br from-gray-900 via-black to-gray-900">
+    <section id="contact" className="section-padding">
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
           viewport={{ once: true }}
-          className="text-center mb-16"
+          className="flex items-center space-x-4 mb-16"
         >
-          <h2 className="heading-secondary mb-4">Get In Touch</h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
-            Ready to start a conversation? Let's discuss your next project or just say hello!
-          </p>
+          <h2 className="heading-secondary">Get In Touch</h2>
+          <div className="flex-1 h-px bg-lightBlue"></div>
         </motion.div>
 
-        <div className="grid lg:grid-cols-2 gap-16">
+        <div className="grid lg:grid-cols-2 gap-12">
           {/* Contact Information */}
           <motion.div
             initial={{ opacity: 0, x: -50 }}
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="space-y-10"
+            className="space-y-8"
           >
-                         <div>
-              <h3 className="text-3xl font-bold text-white mb-6 font-display">
-                 Let's talk about everything!
-               </h3>
-              <p className="text-gray-400 text-lg mb-8 leading-relaxed">
-                 I'm currently looking for new opportunities. Whether you have a question 
-                 or just want to say hi, I'll try my best to get back to you!
-               </p>
-              <motion.a
-                href="https://drive.google.com/file/d/16xCDil_7fPshjiYyziy4MMHvXnxc_aRu/view?usp=sharing"
-                 target="_blank"
-                 rel="noopener noreferrer"
-                whileHover={{ scale: 1.05, y: -2 }}
-                whileTap={{ scale: 0.95 }}
-                className="inline-flex items-center space-x-3 px-8 py-4 bg-gradient-to-r from-orange-500 to-yellow-500 text-white rounded-2xl hover:from-cyan-500 hover:to-purple-500 transition-all duration-500 font-semibold shadow-lg hover:shadow-xl"
-               >
-                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
-                 </svg>
-                 <span>Download Resume</span>
-              </motion.a>
-             </div>
+            <div>
+              <h3 className="text-2xl font-semibold text-white mb-4">Let's Connect</h3>
+              <p className="text-gray-400 mb-8">
+                I'm always open to discussing new opportunities, interesting projects, 
+                or just having a chat about electronics and EV technology.
+              </p>
+            </div>
 
             {/* Contact Details */}
             <div className="space-y-6">
-              <h4 className="text-xl font-semibold text-white mb-6 font-heading">Contact Information</h4>
               {contactInfo.map((info, index) => (
                 <motion.a
-                  key={info.label}
-                  href={info.href}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.5, delay: index * 0.1 }}
+                  key={info.title}
+                  href={info.link}
+                  target={info.title === 'Email' ? '_blank' : undefined}
+                  rel={info.title === 'Email' ? 'noopener noreferrer' : undefined}
+                  initial={{ opacity: 0, y: 20 }}
+                  whileInView={{ opacity: 1, y: 0 }}
+                  transition={{ duration: 0.6, delay: index * 0.1 }}
                   viewport={{ once: true }}
-                  whileHover={{ scale: 1.02, x: 5 }}
-                  className="flex items-center space-x-4 p-4 bg-gray-800/50 border border-gray-700 rounded-2xl hover:border-orange-500 hover:bg-gray-800/80 transition-all duration-300 group"
+                  className="flex items-center space-x-4 p-4 bg-gray-800/50 border border-gray-700/50 rounded-xl hover:border-orange-500/50 transition-all duration-300 group"
                 >
-                  <div className="p-3 bg-gradient-to-r from-orange-500 to-yellow-500 rounded-xl group-hover:from-cyan-500 group-hover:to-purple-500 transition-all duration-500">
-                    <info.icon size={20} className="text-white" />
+                  <div className="p-3 bg-orange-500/20 rounded-lg group-hover:bg-orange-500/30 transition-colors duration-300">
+                    <info.icon className="text-orange-500" size={24} />
                   </div>
                   <div>
-                    <p className="text-sm font-semibold text-white">{info.label}</p>
-                    <p className="text-gray-400 text-sm">{info.value}</p>
+                    <h4 className="text-white font-semibold">{info.title}</h4>
+                    <p className="text-gray-400">{info.value}</p>
                   </div>
                 </motion.a>
               ))}
             </div>
 
-            {/* Social Links */}
+            {/* Social Media Links */}
             <div>
-              <h4 className="text-xl font-semibold text-white mb-6 font-heading">
-                Follow me on social media
-              </h4>
-              <div className="flex flex-wrap gap-4">
-                                   {[
-                    { 
-                      name: 'GitHub', 
-                    href: 'https://github.com/saridechaitanya',
-                    icon: FiGithub,
-                      customIcon: (
-                        <svg 
-                          className="w-5 h-5" 
-                          fill="currentColor" 
-                          viewBox="0 0 24 24"
-                          aria-hidden="true"
-                        >
-                          <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-                        </svg>
-                      )
-                    },
-                  { name: 'LinkedIn', href: 'https://linkedin.com/in/saride-chaitanya', icon: FiLinkedin },
-                  { name: 'Twitter', href: 'https://twitter.com/saridechaitanya', icon: FiTwitter },
-                  { name: 'Instagram', href: 'https://www.instagram.com/saridechaitanya', icon: FiInstagram }
-                  ].map((social, index) => (
-                                     <motion.a
-                     key={social.name}
-                     href={social.href}
-                     target="_blank"
-                     rel="noopener noreferrer"
-                     initial={{ opacity: 0, scale: 0.8 }}
-                     whileInView={{ opacity: 1, scale: 1 }}
-                     transition={{ duration: 0.5, delay: index * 0.1 }}
-                     viewport={{ once: true }}
-                    whileHover={{ scale: 1.1, y: -3 }}
-                    whileTap={{ scale: 0.9 }}
-                    className="px-6 py-3 bg-gray-800/50 border border-gray-700 rounded-xl text-gray-300 hover:text-white hover:border-orange-500 hover:bg-gray-800/80 transition-all duration-300 flex items-center space-x-2 font-medium"
-                   >
-                    {social.customIcon || <social.icon size={18} />}
-                     <span>{social.name}</span>
-                   </motion.a>
+              <h4 className="text-xl font-semibold text-white mb-4">Follow Me</h4>
+              <div className="flex space-x-4">
+                {socialLinks.map((social, index) => (
+                  <motion.a
+                    key={social.title}
+                    href={social.url}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileInView={{ opacity: 1, scale: 1 }}
+                    transition={{ duration: 0.6, delay: index * 0.1 }}
+                    viewport={{ once: true }}
+                    whileHover={{ scale: 1.1, y: -5 }}
+                    className={`p-4 bg-gray-800/50 border border-gray-700/50 rounded-xl text-gray-400 ${social.color} transition-all duration-300 hover:border-orange-500/50`}
+                  >
+                    <social.icon size={24} />
+                  </motion.a>
                 ))}
               </div>
             </div>
+
+            {/* Download Resume */}
+            <motion.a
+              href="https://drive.google.com/file/d/16xCDil_7fPshjiYyziy4MMHvXnxc_aRu/view?usp=sharing"
+              target="_blank"
+              rel="noopener noreferrer"
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: 0.4 }}
+              viewport={{ once: true }}
+              whileHover={{ scale: 1.05 }}
+              className="inline-flex items-center space-x-3 bg-gradient-to-r from-orange-500 to-red-500 text-white px-6 py-4 rounded-xl font-semibold hover:shadow-lg transition-all duration-300"
+            >
+              <span>Download Resume</span>
+              <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 10v6m0 0l-3-3m3 3l3-3m2 8H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+              </svg>
+            </motion.a>
           </motion.div>
 
           {/* Contact Form */}
@@ -203,127 +202,114 @@ const Contact = () => {
             whileInView={{ opacity: 1, x: 0 }}
             transition={{ duration: 0.8 }}
             viewport={{ once: true }}
-            className="bg-gray-900/50 backdrop-blur-sm border border-gray-700/50 rounded-3xl p-8 shadow-2xl"
+            className="bg-gray-900/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-8"
           >
-            <div className="mb-8">
-              <h3 className="text-2xl font-bold text-white mb-2 font-display">Send me a message</h3>
-              <p className="text-gray-400">I'll get back to you as soon as possible!</p>
-            </div>
-
+            <h3 className="text-2xl font-semibold text-white mb-6">Send Message</h3>
+            
             <form onSubmit={handleSubmit} className="space-y-6">
-              <div className="grid md:grid-cols-2 gap-6">
+              <div>
+                <label className="flex items-center space-x-2 text-gray-300 mb-2">
+                  <FiUser size={16} />
+                  <span>Your Name</span>
+                </label>
                 <div className="relative">
-                  <label htmlFor="name" className="block text-sm font-semibold text-white mb-3 flex items-center space-x-2">
-                    <FiUser size={16} />
-                    <span>Name</span>
-                  </label>
-                  <div className="relative">
                   <input
                     type="text"
-                    id="name"
                     name="name"
                     value={formData.name}
-                    onChange={handleChange}
+                    onChange={handleInputChange}
                     required
-                      className="w-full px-4 py-4 bg-gray-800/80 border-2 border-gray-700 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-orange-500 focus:bg-gray-800 transition-all duration-300 font-medium"
-                      placeholder="Enter your name"
+                    className="w-full px-4 py-4 bg-gray-800/80 border-2 border-gray-700 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-orange-500 focus:bg-gray-800 transition-all duration-300 font-medium"
+                    placeholder="Enter your name"
                   />
-                    <div className="absolute inset-0 border-2 border-transparent rounded-xl pointer-events-none transition-all duration-300 group-hover:border-orange-500/50"></div>
-                  </div>
-                </div>
-                
-                <div className="relative">
-                  <label htmlFor="email" className="block text-sm font-semibold text-white mb-3 flex items-center space-x-2">
-                    <FiMail size={16} />
-                    <span>Email</span>
-                  </label>
-                  <div className="relative">
-                  <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    value={formData.email}
-                    onChange={handleChange}
-                    required
-                      className="w-full px-4 py-4 bg-gray-800/80 border-2 border-gray-700 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-orange-500 focus:bg-gray-800 transition-all duration-300 font-medium"
-                      placeholder="Enter your email"
-                  />
-                    <div className="absolute inset-0 border-2 border-transparent rounded-xl pointer-events-none transition-all duration-300 group-hover:border-orange-500/50"></div>
-                  </div>
+                  <div className="absolute inset-0 border-2 border-transparent rounded-xl pointer-events-none group-hover:border-orange-500/30 transition-colors duration-300"></div>
                 </div>
               </div>
 
-              <div className="relative">
-                <label htmlFor="subject" className="block text-sm font-semibold text-white mb-3 flex items-center space-x-2">
+              <div>
+                <label className="flex items-center space-x-2 text-gray-300 mb-2">
+                  <FiMail size={16} />
+                  <span>Your Email</span>
+                </label>
+                <div className="relative">
+                  <input
+                    type="email"
+                    name="email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    required
+                    className="w-full px-4 py-4 bg-gray-800/80 border-2 border-gray-700 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-orange-500 focus:bg-gray-800 transition-all duration-300 font-medium"
+                    placeholder="Enter your email"
+                  />
+                  <div className="absolute inset-0 border-2 border-transparent rounded-xl pointer-events-none group-hover:border-orange-500/30 transition-colors duration-300"></div>
+                </div>
+              </div>
+
+              <div>
+                <label className="flex items-center space-x-2 text-gray-300 mb-2">
                   <FiMessageSquare size={16} />
                   <span>Subject</span>
                 </label>
                 <div className="relative">
-                <input
-                  type="text"
-                  id="subject"
-                  name="subject"
-                  value={formData.subject}
-                  onChange={handleChange}
-                  required
+                  <input
+                    type="text"
+                    name="subject"
+                    value={formData.subject}
+                    onChange={handleInputChange}
+                    required
                     className="w-full px-4 py-4 bg-gray-800/80 border-2 border-gray-700 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-orange-500 focus:bg-gray-800 transition-all duration-300 font-medium"
-                  placeholder="What's this about?"
-                />
-                  <div className="absolute inset-0 border-2 border-transparent rounded-xl pointer-events-none transition-all duration-300 group-hover:border-orange-500/50"></div>
+                    placeholder="What's this about?"
+                  />
+                  <div className="absolute inset-0 border-2 border-transparent rounded-xl pointer-events-none group-hover:border-orange-500/30 transition-colors duration-300"></div>
                 </div>
               </div>
 
-              <div className="relative">
-                <label htmlFor="message" className="block text-sm font-semibold text-white mb-3 flex items-center space-x-2">
+              <div>
+                <label className="flex items-center space-x-2 text-gray-300 mb-2">
                   <FiMessageSquare size={16} />
                   <span>Message</span>
                 </label>
                 <div className="relative">
-                <textarea
-                  id="message"
-                  name="message"
-                  value={formData.message}
-                  onChange={handleChange}
-                  required
-                  rows={6}
+                  <textarea
+                    name="message"
+                    value={formData.message}
+                    onChange={handleInputChange}
+                    required
+                    rows={5}
                     className="w-full px-4 py-4 bg-gray-800/80 border-2 border-gray-700 rounded-xl text-white placeholder-gray-500 focus:outline-none focus:border-orange-500 focus:bg-gray-800 transition-all duration-300 font-medium resize-none"
-                    placeholder="Tell me about your project or just say hello..."
-                />
-                  <div className="absolute inset-0 border-2 border-transparent rounded-xl pointer-events-none transition-all duration-300 group-hover:border-orange-500/50"></div>
+                    placeholder="Your message..."
+                  />
+                  <div className="absolute inset-0 border-2 border-transparent rounded-xl pointer-events-none group-hover:border-orange-500/30 transition-colors duration-300"></div>
                 </div>
               </div>
 
-                             <motion.button
-                 type="submit"
-                 disabled={isSubmitting}
-                whileHover={{ scale: 1.02, y: -2 }}
-                whileTap={{ scale: 0.98 }}
-                className="w-full px-8 py-4 bg-gradient-to-r from-orange-500 to-yellow-500 text-white rounded-xl hover:from-cyan-500 hover:to-purple-500 transition-all duration-500 font-semibold shadow-lg hover:shadow-xl disabled:opacity-50 disabled:cursor-not-allowed flex items-center justify-center space-x-3"
-               >
-                 <FiSend size={18} />
-                 <span>{isSubmitting ? 'Sending...' : 'Send Message'}</span>
-               </motion.button>
+              <button
+                type="submit"
+                disabled={isSubmitting}
+                className="w-full bg-gradient-to-r from-orange-500 to-red-500 text-white py-4 px-6 rounded-xl font-semibold hover:shadow-lg transition-all duration-300 disabled:opacity-50 disabled:cursor-not-allowed"
+              >
+                {isSubmitting ? 'Sending...' : 'Send Message'}
+              </button>
 
-               {/* Success/Error Messages */}
-               {submitStatus === 'success' && (
-                 <motion.div
-                   initial={{ opacity: 0, y: 10 }}
-                   animate={{ opacity: 1, y: 0 }}
-                  className="p-4 bg-green-500/20 border border-green-500/50 rounded-xl text-green-400 text-center font-medium"
-                 >
-                   ✅ Thank you for your message! I will get back to you soon.
-                 </motion.div>
-               )}
+              {submitStatus === 'success' && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="p-4 bg-green-500/20 border border-green-500/30 rounded-xl text-green-400"
+                >
+                  Message sent successfully! I'll get back to you soon.
+                </motion.div>
+              )}
 
-               {submitStatus === 'error' && (
-                 <motion.div
-                   initial={{ opacity: 0, y: 10 }}
-                   animate={{ opacity: 1, y: 0 }}
-                  className="p-4 bg-red-500/20 border border-red-500/50 rounded-xl text-red-400 text-center font-medium"
-                 >
-                  ❌ Sorry, there was an error sending your message. Please try again or contact me directly at saridechaitanya7443@gmail.com
-                 </motion.div>
-               )}
+              {submitStatus === 'error' && (
+                <motion.div
+                  initial={{ opacity: 0, y: 10 }}
+                  animate={{ opacity: 1, y: 0 }}
+                  className="p-4 bg-red-500/20 border border-red-500/30 rounded-xl text-red-400"
+                >
+                  Failed to send message. Please try again or email me directly at saridechaitanya7443@gmail.com
+                </motion.div>
+              )}
             </form>
           </motion.div>
         </div>

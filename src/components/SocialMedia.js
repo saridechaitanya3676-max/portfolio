@@ -1,59 +1,55 @@
 import React from 'react';
 import { motion } from 'framer-motion';
-import { FiGithub, FiLinkedin, FiTwitter, FiMail, FiInstagram, FiYoutube } from 'react-icons/fi';
+import { FiGithub, FiLinkedin, FiTwitter, FiInstagram, FiMail, FiYoutube } from 'react-icons/fi';
 
 const SocialMedia = () => {
   const socialLinks = [
-    { 
-      icon: FiGithub, 
-      href: 'https://github.com/saridechaitanya', 
-      label: 'GitHub',
-      customIcon: (
-        <svg 
-          className="w-6 h-6" 
-          fill="currentColor" 
-          viewBox="0 0 24 24"
-          aria-hidden="true"
-        >
-          <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-        </svg>
-      ),
-      description: 'Check out my projects and contributions'
+    {
+      name: 'GitHub',
+      url: 'https://github.com/saridechaitanya3676-max',
+      icon: FiGithub,
+      color: 'hover:text-gray-400',
+      description: 'Check out my projects'
     },
-    { 
-      icon: FiLinkedin, 
-      href: 'https://linkedin.com/in/saride-chaitanya', 
-      label: 'LinkedIn',
+    {
+      name: 'LinkedIn',
+      url: 'https://www.linkedin.com/in/saride-chaitanya-806ba636b',
+      icon: FiLinkedin,
+      color: 'hover:text-blue-400',
       description: 'Connect with me professionally'
     },
-    { 
-      icon: FiTwitter, 
-      href: 'https://twitter.com/saridechaitanya', 
-      label: 'Twitter',
-      description: 'Follow my thoughts and updates'
+    {
+      name: 'Twitter',
+      url: 'https://twitter.com/chaitu__065',
+      icon: FiTwitter,
+      color: 'hover:text-blue-400',
+      description: 'Follow my updates'
     },
-    { 
-      icon: FiMail, 
-      href: 'https://mail.google.com/mail/?view=cm&fs=1&to=saridechaitanya7443@gmail.com&su=Hello from Portfolio&body=Hi Saride Chaitanya,%0D%0A%0D%0AI came across your portfolio and would like to connect with you.%0D%0A%0D%0ABest regards,', 
-      label: 'Email',
-      description: 'Send me a direct message'
+    {
+      name: 'Instagram',
+      url: 'https://www.instagram.com/chaitu___065?igsh=NTVmY3V6MHZ4bjUy',
+      icon: FiInstagram,
+      color: 'hover:text-pink-400',
+      description: 'See my daily life'
     },
-    { 
-      icon: FiInstagram, 
-      href: 'https://www.instagram.com/saridechaitanya', 
-      label: 'Instagram',
-      description: 'See my creative side'
-    },
-    { 
-      icon: FiYoutube, 
-      href: 'https://youtube.com/@saridechaitanya', 
-      label: 'YouTube',
-      description: 'Watch my tutorials and content'
+    {
+      name: 'YouTube',
+      url: 'https://youtube.com/@saridechaitanya',
+      icon: FiYoutube,
+      color: 'hover:text-red-400',
+      description: 'Watch my videos'
     }
   ];
 
+  const gmailUrl = 'https://mail.google.com/mail/u/0/?fs=1&to=saridechaitanya7443@gmail.com&su=Hello+from+Portfolio&body=Hi+Saride+Chaitanya,%0D%0A%0D%0AI+came+across+your+portfolio+and+would+like+to+connect+with+you.%0D%0A%0D%0ABest+regards,&tf=cm';
+
+  const handleEmailClick = () => {
+    console.log('Email URL:', gmailUrl);
+    window.open(gmailUrl, '_blank', 'noopener,noreferrer');
+  };
+
   return (
-    <section id="social" className="section-padding bg-darkBlue">
+    <section id="social" className="section-padding">
       <div className="container-custom">
         <motion.div
           initial={{ opacity: 0, y: 20 }}
@@ -63,60 +59,59 @@ const SocialMedia = () => {
           className="text-center mb-16"
         >
           <h2 className="heading-secondary mb-4">Let's Connect</h2>
-          <p className="text-textSecondary text-lg max-w-2xl mx-auto">
-            I'm always open to new opportunities and interesting conversations. 
-            Feel free to reach out through any of these platforms!
+          <p className="text-gray-400 max-w-2xl mx-auto">
+            Follow me on social media to stay updated with my latest projects, 
+            insights on electronics and EV technology, and behind-the-scenes content.
           </p>
         </motion.div>
 
-        {/* Icon-only Social Links */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6, delay: 0.2 }}
-          viewport={{ once: true }}
-          className="flex justify-center items-center space-x-8 mb-16"
-        >
+        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
           {socialLinks.map((social, index) => (
             <motion.a
-              key={social.label}
-              href={social.href}
+              key={social.name}
+              href={social.url}
               target="_blank"
               rel="noopener noreferrer"
-              initial={{ opacity: 0, scale: 0.8 }}
-              whileInView={{ opacity: 1, scale: 1 }}
-              transition={{ duration: 0.5, delay: index * 0.1 }}
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.6, delay: index * 0.1 }}
               viewport={{ once: true }}
-              whileHover={{ scale: 1.2, y: -5 }}
-              whileTap={{ scale: 0.9 }}
-              className="p-4 bg-primary border border-lightBlue rounded-full text-textSecondary hover:text-secondary hover:border-secondary transition-all duration-300 shadow-lg hover:shadow-xl"
-              aria-label={social.label}
+              whileHover={{ y: -10, scale: 1.05 }}
+              className="group bg-gray-900/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-8 text-center hover:border-orange-500/50 transition-all duration-300 shadow-lg hover:shadow-xl"
             >
-              {social.customIcon || <social.icon size={28} />}
+              <div className="flex flex-col items-center space-y-4">
+                <div className={`p-4 bg-gray-800/50 rounded-xl ${social.color} transition-all duration-300 group-hover:scale-110`}>
+                  <social.icon size={32} />
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold text-white mb-2">{social.name}</h3>
+                  <p className="text-gray-400 text-sm">{social.description}</p>
+                </div>
+              </div>
             </motion.a>
           ))}
-        </motion.div>
+        </div>
 
-        {/* Call to Action */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
+          initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6, delay: 0.6 }}
           viewport={{ once: true }}
-          className="text-center"
+          className="text-center mt-16"
         >
-          <p className="text-textSecondary mb-6">
-            Don't see the platform you prefer? 
-          </p>
-          <a
-            href="https://mail.google.com/mail/?view=cm&fs=1&to=saridechaitanya7443@gmail.com&su=Hello from Portfolio&body=Hi Saride Chaitanya,%0D%0A%0D%0AI came across your portfolio and would like to connect with you.%0D%0A%0D%0ABest regards,"
-            target="_blank"
-            rel="noopener noreferrer"
-            className="btn-secondary inline-flex items-center space-x-2"
-          >
-            <FiMail size={18} />
-            <span>Send me an email</span>
-          </a>
+          <div className="bg-gray-900/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-8">
+            <h3 className="text-2xl font-semibold text-white mb-4">Get In Touch</h3>
+            <p className="text-gray-400 mb-6">
+              Have a question or want to collaborate? I'd love to hear from you!
+            </p>
+            <button
+              onClick={handleEmailClick}
+              className="btn-gradient inline-flex items-center space-x-2"
+            >
+              <FiMail size={20} />
+              <span>Send me an email</span>
+            </button>
+          </div>
         </motion.div>
       </div>
     </section>

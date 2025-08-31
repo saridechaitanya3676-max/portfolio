@@ -1,162 +1,106 @@
 import React from 'react';
-import { motion } from 'framer-motion';
-import { FiGithub, FiLinkedin, FiTwitter, FiMail, FiInstagram, FiHeart } from 'react-icons/fi';
+import { FiGithub, FiLinkedin, FiTwitter, FiInstagram, FiMail } from 'react-icons/fi';
 
 const Footer = () => {
   const socialLinks = [
-    { 
-      icon: FiGithub, 
-      href: 'https://github.com/saridechaitanya', 
-      label: 'GitHub',
-      customIcon: (
-        <svg 
-          className="w-5 h-5" 
-          fill="currentColor" 
-          viewBox="0 0 24 24"
-          aria-hidden="true"
-        >
-          <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-        </svg>
-      )
+    {
+      name: 'GitHub',
+      url: 'https://github.com/saridechaitanya3676-max',
+      icon: FiGithub
     },
-    { icon: FiLinkedin, href: 'https://linkedin.com/in/saride-chaitanya', label: 'LinkedIn' },
-    { icon: FiTwitter, href: 'https://twitter.com/saridechaitanya', label: 'Twitter' },
-    { icon: FiInstagram, href: 'https://www.instagram.com/saridechaitanya', label: 'Instagram' },
-    { icon: FiMail, href: 'mailto:saridechaitanya7443@gmail.com', label: 'Email' }
+    {
+      name: 'LinkedIn',
+      url: 'https://www.linkedin.com/in/saride-chaitanya-806ba636b',
+      icon: FiLinkedin
+    },
+    {
+      name: 'Twitter',
+      url: 'https://twitter.com/chaitu__065',
+      icon: FiTwitter
+    },
+    {
+      name: 'Instagram',
+      url: 'https://www.instagram.com/chaitu___065?igsh=NTVmY3V6MHZ4bjUy',
+      icon: FiInstagram
+    },
+    {
+      name: 'Email',
+      url: 'https://mail.google.com/mail/u/0/?fs=1&to=saridechaitanya7443@gmail.com&su=Hello+from+Portfolio&body=Hi+Saride+Chaitanya,%0D%0A%0D%0AI+came+across+your+portfolio+and+would+like+to+connect+with+you.%0D%0A%0D%0ABest+regards,&tf=cm',
+      icon: FiMail
+    }
   ];
 
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
   return (
-    <footer className="bg-darkBlue border-t border-lightBlue">
-      <div className="container-custom px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid md:grid-cols-3 gap-8 items-center">
-          {/* Logo and Description */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6 }}
-            viewport={{ once: true }}
-            className="space-y-4"
-          >
-                         <h3 className="text-2xl font-bold text-secondary cursor-pointer" onClick={scrollToTop}>
-              Saride Chaitanya
-            </h3>
-                         <p className="text-textSecondary text-sm max-w-md">
-              A passionate Electronics & Communication Engineering student focused on EV charger manufacturing, 
-              testing, and electronics with hands-on experience in industrial training.
+    <footer className="bg-gray-900/50 backdrop-blur-sm border-t border-gray-700/50">
+      <div className="container-custom py-12">
+        <div className="grid md:grid-cols-3 gap-8">
+          {/* Brand */}
+          <div className="space-y-4">
+            <h3 className="text-2xl font-bold text-white font-tech">Saride Chaitanya</h3>
+            <p className="text-gray-400 max-w-md">
+              Electronics & Communication Engineering student specializing in EV charger manufacturing, 
+              testing, and innovative IoT solutions.
             </p>
-          </motion.div>
+          </div>
 
           {/* Quick Links */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.2 }}
-            viewport={{ once: true }}
-            className="space-y-4"
-          >
-            <h4 className="text-lg font-semibold text-textPrimary">Quick Links</h4>
-            <div className="space-y-2">
-                             {[
-                 { name: 'About', href: '#about' },
-                 { name: 'Experience', href: '#experience' },
-                 { name: 'Projects', href: '#projects' },
-                 { name: 'Contact', href: '#contact' },
-                 { name: 'Social', href: '#social' }
-               ].map((link) => (
+          <div className="space-y-4">
+            <h4 className="text-lg font-semibold text-white">Quick Links</h4>
+            <ul className="space-y-2">
+              <li>
+                <a href="#home" className="text-gray-400 hover:text-orange-500 transition-colors duration-300">
+                  Home
+                </a>
+              </li>
+              <li>
+                <a href="#about" className="text-gray-400 hover:text-orange-500 transition-colors duration-300">
+                  About
+                </a>
+              </li>
+              <li>
+                <a href="#experience" className="text-gray-400 hover:text-orange-500 transition-colors duration-300">
+                  Experience
+                </a>
+              </li>
+              <li>
+                <a href="#projects" className="text-gray-400 hover:text-orange-500 transition-colors duration-300">
+                  Projects
+                </a>
+              </li>
+              <li>
+                <a href="#contact" className="text-gray-400 hover:text-orange-500 transition-colors duration-300">
+                  Contact
+                </a>
+              </li>
+            </ul>
+          </div>
+
+          {/* Social Links */}
+          <div className="space-y-4">
+            <h4 className="text-lg font-semibold text-white">Connect</h4>
+            <div className="flex space-x-4">
+              {socialLinks.map((social) => (
                 <a
-                  key={link.name}
-                  href={link.href}
-                  className="block text-textSecondary hover:text-secondary transition-colors duration-300 text-sm"
+                  key={social.name}
+                  href={social.url}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="p-3 bg-gray-800/50 border border-gray-700/50 rounded-xl text-gray-400 hover:text-orange-500 hover:border-orange-500/50 transition-all duration-300"
+                  aria-label={social.name}
                 >
-                  {link.name}
+                  <social.icon size={20} />
                 </a>
               ))}
             </div>
-          </motion.div>
-
-          {/* Social Links */}
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            whileInView={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.6, delay: 0.4 }}
-            viewport={{ once: true }}
-            className="space-y-4"
-          >
-            <h4 className="text-lg font-semibold text-textPrimary">Connect</h4>
-            <div className="flex space-x-4">
-              {socialLinks.map((social, index) => (
-                                 <motion.a
-                   key={social.label}
-                   href={social.href}
-                   target="_blank"
-                   rel="noopener noreferrer"
-                   initial={{ opacity: 0, scale: 0.8 }}
-                   whileInView={{ opacity: 1, scale: 1 }}
-                   transition={{ duration: 0.5, delay: index * 0.1 }}
-                   viewport={{ once: true }}
-                   whileHover={{ scale: 1.1 }}
-                   whileTap={{ scale: 0.9 }}
-                   className="p-3 bg-primary border border-lightBlue rounded-lg text-textSecondary hover:text-secondary hover:border-secondary transition-all duration-300"
-                   aria-label={social.label}
-                 >
-                   {social.customIcon || <social.icon size={20} />}
-                 </motion.a>
-              ))}
-            </div>
-          </motion.div>
+          </div>
         </div>
 
-        {/* Bottom Section */}
-        <motion.div
-          initial={{ opacity: 0 }}
-          whileInView={{ opacity: 1 }}
-          transition={{ duration: 0.6, delay: 0.6 }}
-          viewport={{ once: true }}
-          className="border-t border-lightBlue mt-8 pt-8"
-        >
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
-                         <p className="text-textSecondary text-sm">
-              © {new Date().getFullYear()} Saride Chaitanya. All rights reserved.
-             </p>
-            
-            <div className="flex items-center space-x-2 text-textSecondary text-sm">
-              <span>Made with</span>
-              <FiHeart className="text-red-500 animate-pulse" size={16} />
-              <span>using React & Tailwind CSS</span>
-            </div>
-          </div>
-        </motion.div>
-
-        {/* Back to Top Button */}
-        <motion.button
-          onClick={scrollToTop}
-          initial={{ opacity: 0, scale: 0 }}
-          whileInView={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 0.6, delay: 0.8 }}
-          viewport={{ once: true }}
-          whileHover={{ scale: 1.1 }}
-          whileTap={{ scale: 0.9 }}
-          className="fixed bottom-8 right-8 p-3 bg-secondary text-primary rounded-full shadow-lg hover:bg-opacity-80 transition-all duration-300 z-50"
-          aria-label="Back to top"
-        >
-          <svg
-            className="w-6 h-6"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M5 10l7-7m0 0l7 7m-7-7v18"
-            />
-          </svg>
-        </motion.button>
+        {/* Bottom Bar */}
+        <div className="border-t border-gray-700/50 mt-8 pt-8 text-center">
+          <p className="text-gray-400">
+            © 2024 Saride Chaitanya. All rights reserved. | Built with ❤️ using React & Tailwind CSS
+          </p>
+        </div>
       </div>
     </footer>
   );

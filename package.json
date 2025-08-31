@@ -6,6 +6,7 @@
   "author": "Saride Chaitanya",
   "email": "saridechaitanya7443@gmail.com",
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
     "@testing-library/user-event": "^13.5.0",
